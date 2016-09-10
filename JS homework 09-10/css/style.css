@@ -1,0 +1,207 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #e0ffff;
+    height: 100%;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.nav_wrapper {
+    background: red;
+    height: 40px;
+    margin-bottom: 50px;
+}
+
+.outside {
+    height: 40px;
+    width: 80%;
+    margin: 0 auto;
+} 
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.out {
+    display: inline-block;
+    height: 40px;
+    padding-top: 10px;
+    margin-right: 20px;
+}
+
+.out a {
+    color: white;
+}
+
+.out a:hover {
+    color: black;
+}
+
+.first_wrapper,
+.second_wrapper,
+.third_wrapper {
+    position: relative;
+}
+
+.inside_first,
+.inside_second,
+.inside_third {
+    opacity: 0;
+    height: 0px;
+    width: 160px;
+    background-color: #ff3f14;
+    position: absolute;
+    padding: 0px 0px 0 10px;
+    z-index: 10;
+}
+
+.inside_first {
+    top: 37px;
+    left: -15px;
+}
+
+.inside_second,
+.inside_third {
+    top: 0px;
+    left: 160px;
+}
+
+.in a {
+    display: block;
+    height: 30px;
+    width: 140px;
+    border-bottom: 1px solid black;
+    padding-top: 10px;
+}
+
+.inside_first .in:last-child a {
+    border-bottom: none;
+}
+
+.hide_block {
+    overflow: hidden;
+}
+
+
+
+.form_wrapper {
+    margin: 0 auto;
+    width: 120px;
+    float: left;
+}
+
+.select_wrapper {
+    width: 220px;
+    margin-bottom: 220px;
+}
+
+.wrapper_check_box_f {
+    margin-bottom: 30px;
+}
+
+input {
+    display: none;
+}
+
+input + label {
+    cursor: pointer;
+}
+
+#first_ch + .first_lb::after,
+#second_ch + .second_lb::after,
+#third_ch + .third_lb::after {
+    content: "";
+    display: inline-block;
+    height: 22px;
+    width: 22px;
+    background-image: url(../img/Checked.png);
+    background-repeat: no-repeat;
+    background-position: 0px -22px;
+}
+
+#first_ch:checked + .first_lb::after,
+#second_ch:checked + .second_lb::after,
+#third_ch:checked + .third_lb::after {
+    background-position: 0px 0px;
+}
+
+#third_ch + .third_lb::after {
+    background-position: 0px -45px;
+}
+
+
+.checkbox:hover {
+    cursor: pointer;
+}
+
+.checkbox input {
+    display: none;
+}
+
+.checkbox .check {
+    display: inline-block;
+    width:22px;
+    height:22px;
+    background: url(../img/Checked.png) no-repeat 0 -22px;
+}
+
+.checked .check {
+    background: url(../img/Checked.png) no-repeat 0px 0px;
+}
+
+.wrapper_check_box_s .ch .check {
+    background: url(../img/Checked.png) no-repeat 0 -45px;
+}
+
+
+
+
+.bottom_nav_wrapper {
+    background: red;
+    height: 40px;
+    margin-bottom: 50px;
+}
+
+.bottom_first_wrapper,
+.bottom_second_wrapper,
+.bottom_third_wrapper {
+    position: relative;
+}
+
+.bottom_inside_first,
+.bottom_inside_second,
+.bottom_inside_third {
+    opacity: 1;
+    height: 0px;
+    width: 160px;
+    background-color: #ff3f14;
+    position: absolute;
+    padding: 0px 0px 0 10px;
+    z-index: 10;
+}
+
+.bottom_inside_first {
+    top: 37px;
+    left: -15px;
+}
+
+.bottom_inside_second,
+.bottom_inside_third {
+    top: 0px;
+    left: 160px;
+}
+
+.bottom_inside_first .in:last-child a {
+    border-bottom: none;
+}
