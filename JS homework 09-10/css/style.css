@@ -13,6 +13,8 @@ body {
     clear: both;
 }
 
+/*styles for navigation menu with jQuery starts*/
+
 .nav_wrapper {
     background: red;
     height: 40px;
@@ -37,8 +39,31 @@ a {
     display: inline-block;
     height: 40px;
     padding-top: 10px;
-    margin-right: 20px;
+    padding-right: 20px; 
 }
+
+/*arrows to items with sub-menus*/
+
+.arrow_1 {
+    top: 15px;
+    right: 10px;
+    position: absolute;
+    height: 8px;
+    width: 7px;
+    background: url(../img/arrows.png) 0px 0px no-repeat;
+}
+
+.arrow_2,
+.arrow_3  {
+    top: 15px;
+    right: 13px;
+    position: absolute;
+    height: 8px;
+    width: 7px;
+    background: url(../img/arrows.png) -9px 0px no-repeat;
+}
+
+/*ends arrows*/
 
 .out a {
     color: white;
@@ -53,6 +78,8 @@ a {
 .third_wrapper {
     position: relative;
 }
+
+/*styles for nested lists*/
 
 .inside_first,
 .inside_second,
@@ -93,79 +120,11 @@ a {
     overflow: hidden;
 }
 
+/*ends styles for nested lists*/
 
+/*styles for navigation menu with jQuery ends*/
 
-.form_wrapper {
-    margin: 0 auto;
-    width: 120px;
-    float: left;
-}
-
-.select_wrapper {
-    width: 220px;
-    margin-bottom: 220px;
-}
-
-.wrapper_check_box_f {
-    margin-bottom: 30px;
-}
-
-input {
-    display: none;
-}
-
-input + label {
-    cursor: pointer;
-}
-
-#first_ch + .first_lb::after,
-#second_ch + .second_lb::after,
-#third_ch + .third_lb::after {
-    content: "";
-    display: inline-block;
-    height: 22px;
-    width: 22px;
-    background-image: url(../img/Checked.png);
-    background-repeat: no-repeat;
-    background-position: 0px -22px;
-}
-
-#first_ch:checked + .first_lb::after,
-#second_ch:checked + .second_lb::after,
-#third_ch:checked + .third_lb::after {
-    background-position: 0px 0px;
-}
-
-#third_ch + .third_lb::after {
-    background-position: 0px -45px;
-}
-
-
-.checkbox:hover {
-    cursor: pointer;
-}
-
-.checkbox input {
-    display: none;
-}
-
-.checkbox .check {
-    display: inline-block;
-    width:22px;
-    height:22px;
-    background: url(../img/Checked.png) no-repeat 0 -22px;
-}
-
-.checked .check {
-    background: url(../img/Checked.png) no-repeat 0px 0px;
-}
-
-.wrapper_check_box_s .ch .check {
-    background: url(../img/Checked.png) no-repeat 0 -45px;
-}
-
-
-
+/*styles for navigation menu with javaScript starts*/
 
 .bottom_nav_wrapper {
     background: red;
@@ -205,3 +164,89 @@ input + label {
 .bottom_inside_first .in:last-child a {
     border-bottom: none;
 }
+
+/*styles for navigation menu with javaScript ends*/
+
+
+
+.form_wrapper {        /*pushes the form to the left*/
+    margin: 0 auto;
+    width: 120px;
+    float: left;
+}
+
+/*customised select*/
+
+.select_wrapper {        /*leaves space for the drop-down list*/
+    width: 220px;
+    margin-bottom: 220px;
+}
+
+/*customised checkbox CSS*/
+
+.wrapper_check_box_f {
+    margin-bottom: 30px;
+}
+
+input {
+    display: none;
+}
+
+input + label {
+    cursor: pointer;
+}
+
+#first_ch + .first_lb::after,
+#second_ch + .second_lb::after,
+#third_ch + .third_lb::after {
+    content: "";
+    display: inline-block;
+    height: 22px;
+    width: 22px;
+    background-image: url(../img/Checked.png);
+    background-repeat: no-repeat;
+    background-position: 0px -22px;
+}
+
+#first_ch:checked + .first_lb::after,
+#second_ch:checked + .second_lb::after,
+#third_ch:checked + .third_lb::after {
+    background-position: 0px 0px;
+}
+
+#third_ch + .third_lb::after {
+    background-position: 0px -45px;   /*inactive checkbox*/
+}
+
+/*ends customised checkbox CSS*/
+
+/*customised checkbox jQuery*/
+
+
+.checkbox:hover {
+    cursor: pointer;
+}
+
+.checkbox input {
+    display: none;
+}
+
+.checkbox .check {
+    display: inline-block;
+    width:22px;
+    height:22px;
+    background: url(../img/Checked.png) no-repeat 0 -22px;
+}
+
+.checked .check {
+    background: url(../img/Checked.png) no-repeat 0px 0px;
+}
+
+.wrapper_check_box_s .ch .check {
+    background: url(../img/Checked.png) no-repeat 0 -45px;  /*inactive checkbox*/
+}
+
+/*ends customised checkbox jQuery*/
+
+
+

@@ -3,16 +3,16 @@ $(function () {
 
     //  jQuery checkbox
 
+    /* find all elements with the class "checkbox" 
+       and  add or remove class "checked" by the click*/
 
-    $.each($(".checkbox"),function(){
+    $.each($(".checkbox"),function(){ 
 
         if($("input", this).is(":checked")){
             
             $(this).addClass("checked")
         }
     });
-
-
 
     $(".checkbox").click(function() {
 
@@ -21,9 +21,9 @@ $(function () {
     });
 
 
-    //   jQuery slide list
+    //   jQuery dropdown menu
 
-    
+    //this function expands a submenu
 
     (function($) {
 
@@ -33,12 +33,16 @@ $(function () {
 
     		    opacity: 1,
 
-                height: "205px",
+                height: "205px"
 
             }, 400);
+
+            return(this);
         };
+
     })(jQuery);
 
+    //this function changes the color
 
     (function($) {
 
@@ -49,9 +53,13 @@ $(function () {
                 backgroundColor: "green"
 
             }, 400);
+
+            return(this);
         };
+
     })(jQuery);
 
+    //this function collapses the submenu
 
     (function($) {
 
@@ -61,12 +69,16 @@ $(function () {
 
     		    opacity: 0,
 
-                height: "0px",
+                height: "0px"
 
             }, 400);
+
+            return(this);
         };
+
     })(jQuery);
 
+    //this function restores the default color
 
     (function($) {
 
@@ -77,228 +89,241 @@ $(function () {
                 backgroundColor: "#ff3f14"
 
             }, 400);
+
+            return(this);
         };
+
     })(jQuery);
 
-
+    //the animation for the first submenu
 
     $(".first_wrapper").mouseenter(function() {
 
-    	$(".inside_first").down();
-
-    	$(".inside_first").changeColor();
+        $(".inside_first").stop(true).down().changeColor();
 
     })
 
     .mouseleave(function() {
 
-    	$(".inside_first").recoverColor();
-
-    	$(".inside_first").addClass("hide_block").up();
+        $(".inside_first").stop(true).recoverColor().up();
 
     });
 
-
+    //the animation for the second submenu
 
     $(".second_wrapper").mouseenter(function() {
 
-    	$(".inside_first").removeClass("hide_block");
+        $(".inside_first").removeClass("hide_block");
 
-    	$(".inside_second").down();
-
-    	$(".inside_second").changeColor();
+    	$(".inside_second").stop(true).down().changeColor();
 
     })
 
     .mouseleave(function() {
 
-    	$(".inside_second").recoverColor();
+    	$(".inside_second").stop().recoverColor().up();
 
-    	$(".inside_second").addClass("hide_block").up();
     });
 
-
+    //the animation for the third submenu
 
     $(".third_wrapper").mouseenter(function() {
 
     	$(".inside_second").removeClass("hide_block")
 
-    	$(".inside_third").down();
-
-    	$(".inside_third").changeColor();
+    	$(".inside_third").stop(true).down().changeColor();
 
     })
 
     .mouseleave(function() {
 
-    	$(".inside_third").recoverColor();
+    	$(".inside_third").stop().recoverColor().up();
 
-    	$(".inside_third").up();
     });
 
     
 });
 
 
-    //  Java Script native slide list
+    //  Java Script native dropdown menu
 
 
 window.onload = function() {
 
-
-var firstHref = document.querySelector(".bottom_first_wrapper");
-
-var secondHref = document.querySelector(".bottom_second_wrapper");
-
-var thirdHref = document.querySelector(".bottom_third_wrapper");
-
-var firstMenu = document.querySelector(".bottom_inside_first");
-
-var secondMenu = document.querySelector(".bottom_inside_second");
-
-var thirdMenu = document.querySelector(".bottom_inside_third");
+    //find the menu and sub-menus and write them in variables
 
 
+    var firstHref = document.querySelector(".bottom_first_wrapper");
+
+    var secondHref = document.querySelector(".bottom_second_wrapper");
+
+    var thirdHref = document.querySelector(".bottom_third_wrapper");
+
+    var firstMenu = document.querySelector(".bottom_inside_first");
+
+    var secondMenu = document.querySelector(".bottom_inside_second");
+
+    var thirdMenu = document.querySelector(".bottom_inside_third");
 
 
-function firstSlideDown() {
+    //the animation of the appearance of the first submenu
 
-	var heightPosition = 0;
-
-    var interval = setInterval(function() {
-
-        if(heightPosition == 184) {
-
-        	clearInterval(interval);
-        };
-
-    	heightPosition += 23;
-
-        firstMenu.style.height = heightPosition + "px";
-
-    }, 20);
-
-};
+    /*every 20 milliseconds increase the height of submenu for 23px
+      when reaching the desired height clear the interval.*/
 
 
-function firstSlideUp() {
+    function firstSlideDown() {
 
-	firstMenu.className = 'bottom_inside_first hide_block';
+	    var heightPosition = 0;
 
-	var heightPosition = 207;
+        var interval = setInterval(function() {
+
+            if(heightPosition == 184) {
+
+        	    clearInterval(interval);
+            };
+
+    	    heightPosition += 23;
+
+            firstMenu.style.height = heightPosition + "px";
+
+        }, 20);
+
+    };
+
+    //the animation of the disappearance of the first submenu
+
+    /*every 20 milliseconds decrease the height of submenu for 23px
+      when reaching the desired height clear the interval.*/
+
+
+    function firstSlideUp() {
+
+	    firstMenu.className = 'bottom_inside_first hide_block';
+
+	    var heightPosition = 207;
     
-    var interval = setInterval(function() {
+        var interval = setInterval(function() {
 
-        if(heightPosition == 0) {
+            if(heightPosition == 0) {
 
-            clearInterval(interval);
-        }
+                clearInterval(interval);
+            };
 
-        heightPosition -= 23;
+            heightPosition -= 23;
 
-        firstMenu.style.height = heightPosition + "px";
+            firstMenu.style.height = heightPosition + "px";
 
-    }, 20);
-};
+        }, 20);
+    };
 
-function secondSlideDown() {
+    //the animation of the appearance of the second submenu
 
-	firstMenu.className = 'bottom_inside_first';
+    function secondSlideDown() {
 
-	var heightPosition = 0;
+	    firstMenu.className = 'bottom_inside_first';
 
-    var interval = setInterval(function() {
+	    var heightPosition = 0;
 
-        if(heightPosition == 184) {
+        var interval = setInterval(function() {
 
-        	clearInterval(interval);
-        }
+            if(heightPosition == 184) {
 
-    	heightPosition += 23;
+        	    clearInterval(interval);
+            };
 
-        secondMenu.style.height = heightPosition + "px";
+    	    heightPosition += 23;
 
-    }, 20);
+            secondMenu.style.height = heightPosition + "px";
 
-};
+        }, 20);
 
-function secondSlideUp() {
+    };
 
-	secondMenu.className = 'bottom_inside_second hide_block';
+    //the animation of the disappearance of the second submenu
 
-	var heightPosition = 207;
+    function secondSlideUp() {
+
+	    secondMenu.className = 'bottom_inside_second hide_block';
+
+	    var heightPosition = 207;
     
-    var interval = setInterval(function() {
+        var interval = setInterval(function() {
 
-        if(heightPosition == 0) {
+            if(heightPosition == 0) {
 
-            clearInterval(interval);
-        }
+                clearInterval(interval);
+            };
 
-        heightPosition -= 23;
+            heightPosition -= 23;
 
-        secondMenu.style.height = heightPosition + "px";
+            secondMenu.style.height = heightPosition + "px";
 
-    }, 20);
-};
+        }, 20);
+    };
 
-function thirdSlideDown() {
+    //the animation of the appearance of the third submenu
 
-	secondMenu.className = 'bottom_inside_second';
+    function thirdSlideDown() {
 
-	var heightPosition = 0;
+	    secondMenu.className = 'bottom_inside_second';
 
-    var interval = setInterval(function() {
+	    var heightPosition = 0;
 
-        if(heightPosition == 184) {
+        var interval = setInterval(function() {
 
-        	clearInterval(interval);
-        }
+            if(heightPosition == 184) {
 
-    	heightPosition += 23;
+        	    clearInterval(interval);
+            };
 
-        thirdMenu.style.height = heightPosition + "px";
+    	    heightPosition += 23;
 
-    }, 20);
+            thirdMenu.style.height = heightPosition + "px";
 
-};
+        }, 20);
 
-function thirdSlideUp() {
+    };
 
-	thirdMenu.className = 'bottom_inside_third hide_block';
+    //the animation of the disappearance of the third submenu
 
-	var heightPosition = 207;
+    function thirdSlideUp() {
+
+	    thirdMenu.className = 'bottom_inside_third hide_block';
+
+	    var heightPosition = 207;
     
-    var interval = setInterval(function() {
+        var interval = setInterval(function() {
 
-        if(heightPosition == 0) {
+            if(heightPosition == 0) {
 
-            clearInterval(interval);
-        }
+                clearInterval(interval);
+            };
 
-        heightPosition -= 23;
+            heightPosition -= 23;
 
-        thirdMenu.style.height = heightPosition + "px";
+            thirdMenu.style.height = heightPosition + "px";
 
-    }, 20);
+        }, 20);
+    };
+
+    //hang events with event handlers on elements
+
+    firstHref.addEventListener('mouseenter', firstSlideDown);
+
+    firstHref.addEventListener('mouseleave', firstSlideUp);
+
+    secondHref.addEventListener('mouseenter', secondSlideDown);
+
+    secondHref.addEventListener('mouseleave', secondSlideUp);
+
+    thirdHref.addEventListener('mouseenter', thirdSlideDown);
+
+    thirdHref.addEventListener('mouseleave', thirdSlideUp);
+
 };
 
-
-
-firstHref.addEventListener('mouseenter', firstSlideDown);
-
-firstHref.addEventListener('mouseleave', firstSlideUp);
-
-secondHref.addEventListener('mouseenter', secondSlideDown);
-
-secondHref.addEventListener('mouseleave', secondSlideUp);
-
-thirdHref.addEventListener('mouseenter', thirdSlideDown);
-
-thirdHref.addEventListener('mouseleave', thirdSlideUp);
-
-};
-
+//call custom selects
 
 $(function () {
 
